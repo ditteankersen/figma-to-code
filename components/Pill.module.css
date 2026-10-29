@@ -1,11 +1,43 @@
-/* Figma: the component set "Pill". Use your tokens with var(). */
-
-/* Auto layout -> flexbox (step 1.3) */
 .pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 111px;
+  height: 46px;
+  padding: 10px 18px;
+  border: 2px solid transparent;
+  border-radius: 200px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.18px;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
 }
 
-/* Type=Primary and Type=Secondary -> one class per type (step 1.4) */
+.pill:hover,
+.pill:focus-visible {
+  border-color: var(--color-red);
+  transform: translateY(-1px);
+}
 
-/* State=Hover -> :hover and :focus-visible (step 1.4) */
+.primary {
+  background: var(--color-green);
+  color: var(--color-red);
+}
 
-/* Smart Animate -> transition on .pill (step 1.5) */
+.secondary {
+  min-width: 119px;
+  background: var(--color-red);
+  border-color: transparent;
+  color: var(--color-green);
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  border-color: var(--color-green);
+}

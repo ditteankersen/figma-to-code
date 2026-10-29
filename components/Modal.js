@@ -1,7 +1,30 @@
 import styles from "./Modal.module.css";
 
-// Figma: the component "Modal".
-// Open it with showModal() (step 1.1), and style it with your tokens (step 1.3).
-export default function Modal() {
-  return <dialog className={styles.modal}>Modal</dialog>;
+export default function Modal({ isOpen, onClose }) {
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div
+        className={styles.modal}
+        role="dialog"
+        aria-modal="true"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className={styles.icon} aria-hidden="true">
+          $
+        </div>
+
+        <h2 className={styles.title}>Lærke donerer penge</h2>
+
+        <p className={styles.text}>
+          Lærke er så rig at hun har valgt at donere alle sine penge til Ditte.
+          <br />
+          Robin Hood style.
+        </p>
+      </div>
+    </div>
+  );
 }

@@ -9,6 +9,8 @@
  */
 :root {
   /* Color */
+  --color-green: #5fff51;
+  --color-red: #fb4c4c;
 
   /* Typography – the font itself is loaded in app/layout.js */
   --font-family-primary: var(--font-inter), sans-serif;
