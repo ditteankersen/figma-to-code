@@ -13,16 +13,26 @@
   letter-spacing: -0.18px;
   cursor: pointer;
   transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    color 150ms ease,
-    transform 150ms ease;
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+  will-change: transform, box-shadow, filter;
 }
 
-.pill:hover,
-.pill:focus-visible {
-  border-color: var(--color-red);
-  transform: translateY(-1px);
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .primary {
@@ -37,7 +47,55 @@
   color: var(--color-green);
 }
 
+.pill:hover .letter,
+.pill:focus-visible .letter {
+  animation:
+    vanish 120ms ease forwards,
+    typeIn 180ms ease forwards;
+  animation-delay: var(--delay), calc(var(--delay) + 120ms);
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes typeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pill:hover,
+.pill:focus-visible {
+  border-color: var(--color-green);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  filter: saturate(1.08);
+}
+
+.pill:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
 .secondary:hover,
 .secondary:focus-visible {
   border-color: var(--color-green);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  border-color: var(--color-red);
 }

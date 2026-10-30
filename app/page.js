@@ -12,7 +12,12 @@ export default function Home() {
     <main className={styles.page}>
       <h1>Components</h1>
       <div className={styles.pills}>
-        <Pill onClick={() => setIsModalOpen(true)}>Primary</Pill>
+        <Pill variant="primary" onClick={() => setIsModalOpen(true)}>
+          Primary
+        </Pill>
+        <Pill variant="secondary" onClick={() => setIsModalOpen(true)}>
+          Secondary
+        </Pill>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
